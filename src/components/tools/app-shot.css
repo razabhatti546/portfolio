@@ -1,0 +1,136 @@
+.technologies-images-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rotating-menu {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-origin: center;
+  animation: rotateMenu 10s infinite linear;
+}
+
+.menu-item {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-origin: center;
+  margin: 25px;
+}
+@media (max-width: 767px) {
+  .menu-item {
+    position: absolute;
+    width: 75px !important;
+    height: 75px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-origin: center;
+    margin: 15px !important;
+  }
+  .menu-item img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    margin: 5px !important;
+    /* Add the following line to counteract the container rotation */
+    transform: rotate(calc(-360deg));
+  }
+  .menu-item:nth-child(1) {
+    transform: rotate(0deg) translateX(100px) rotate(0deg) !important;
+  }
+
+  .menu-item:nth-child(2) {
+    transform: rotate(calc(360deg / 6 * 1)) translateX(100px)
+      rotate(calc(-360deg / 6 * 1)) !important;
+  }
+
+  .menu-item:nth-child(3) {
+    transform: rotate(calc(360deg / 6 * 2)) translateX(100px)
+      rotate(calc(-360deg / 6 * 2)) !important;
+  }
+
+  .menu-item:nth-child(4) {
+    transform: rotate(calc(360deg / 6 * 3)) translateX(100px)
+      rotate(calc(-360deg / 6 * 3)) !important;
+  }
+
+  .menu-item:nth-child(5) {
+    transform: rotate(calc(360deg / 6 * 4)) translateX(100px)
+      rotate(calc(-360deg / 6 * 4)) !important;
+  }
+
+  .menu-item:nth-child(6) {
+    transform: rotate(calc(360deg / 6 * 5)) translateX(100px)
+      rotate(calc(-360deg / 6 * 5)) !important;
+  }
+}
+
+.menu-item img {
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  margin: 20px;
+  /* Add the following line to counteract the container rotation */
+  transform: rotate(calc(-360deg));
+}
+
+.menu-item:nth-child(1) {
+  transform: rotate(0deg) translateX(150px) rotate(0deg);
+}
+
+.menu-item:nth-child(2) {
+  transform: rotate(calc(360deg / 6 * 1)) translateX(150px)
+    rotate(calc(-360deg / 6 * 1));
+}
+
+.menu-item:nth-child(3) {
+  transform: rotate(calc(360deg / 6 * 2)) translateX(150px)
+    rotate(calc(-360deg / 6 * 2));
+}
+
+.menu-item:nth-child(4) {
+  transform: rotate(calc(360deg / 6 * 3)) translateX(150px)
+    rotate(calc(-360deg / 6 * 3));
+}
+
+.menu-item:nth-child(5) {
+  transform: rotate(calc(360deg / 6 * 4)) translateX(150px)
+    rotate(calc(-360deg / 6 * 4));
+}
+
+.menu-item:nth-child(6) {
+  transform: rotate(calc(360deg / 6 * 5)) translateX(150px)
+    rotate(calc(-360deg / 6 * 5));
+}
+
+@keyframes rotateMenu {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateImages {
+  0% {
+    transform: rotate(calc(-0deg));
+  }
+  100% {
+    transform: rotate(calc(-360deg));
+  }
+}
+
+.menu-item img {
+  animation: rotateImages infinite linear;
+}

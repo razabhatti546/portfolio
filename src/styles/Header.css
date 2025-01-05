@@ -13,3 +13,23 @@
   color: white !important;
   font-family: Poppins;
 }
+
+.banner-animation {
+  animation-name: "banner";
+  animation-duration: 1s;
+}
+
+@keyframes banner {
+  0% {
+    motion-rotation: 0deg;
+  }
+  25% {
+    motion-rotation: 50deg;
+  }
+  75% {
+    motion-rotation: 0deg;
+  }
+  100% {
+    motion-rotation: 50deg;
+  }
+}

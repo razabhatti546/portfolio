@@ -42,11 +42,11 @@ export const Header = ({ darkMode, setDarkMode }) => {
   return (
     <div className={darkMode ? "dark" : ""}>
       <div className="h-[70px] dark:bg-abc w-full dark:fixed mt-[0px] z-10">
-        <div className="pl-[50px] pr-[50px] flex justify-between items-center h-full">
+        <div className="md:pl-[50px] md: pr-[50px] sm:pl-[10px] sm:pr-[10px] flex justify-between items-center h-full">
           <div span={4} className="dark:text-white text-2xl font-poppins">
             Portfolio
           </div>
-          <div className="flex">
+          <div className="flex justify-center items-center">
             {width < 786 ? (
               <>
                 <Dropdown menu={{ items }}>
@@ -67,30 +67,32 @@ export const Header = ({ darkMode, setDarkMode }) => {
                 </li>
               </>
             ) : (
-              <div className="flex jusitfy-between w-full">
-                {[
-                  { name: "Home", id: "#home" },
-                  { name: "About Me", id: "#about" },
-                  { name: "Services", id: "#Services" },
-                  { name: "Contact Me", id: "#contactus" },
-                ].map((item, index) => {
-                  return (
-                    <a
-                      className="flex-initial w-[150px] dark:text-white font-poppins"
-                      rel="noopener noreferrer"
-                      href={item?.id}
-                    >
-                      {item?.name}
-                    </a>
-                  );
-                })}
+              <>
+                <div className="flex jusitfy-between items-center w-full">
+                  {[
+                    { name: "Home", id: "#home" },
+                    { name: "About Me", id: "#about" },
+                    { name: "Services", id: "#Services" },
+                    { name: "Contact Me", id: "#contactus" },
+                  ].map((item, index) => {
+                    return (
+                      <a
+                        className="flex-initial w-[150px] dark:text-white font-poppins"
+                        rel="noopener noreferrer"
+                        href={item?.id}
+                      >
+                        {item?.name}
+                      </a>
+                    );
+                  })}
+                </div>
                 <div
-                  className="cursor-pointer text-xl"
+                  className="cursor-pointer bg-dark  flex justify-center items-center"
                   onClick={() => setDarkMode(!darkMode)}
                 >
-                  <BsFillMoonStarsFill className="dark:text-white" />
+                  <BsFillMoonStarsFill className="dark:text-white " />
                 </div>
-              </div>
+              </>
             )}
           </div>
         </div>

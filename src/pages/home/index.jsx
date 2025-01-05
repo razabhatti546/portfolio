@@ -1,41 +1,68 @@
 import React, { useCallback, useState } from "react";
-import { Header } from "../../components/Header/Header";
-import { Alert, Button, Card, Col, Form, Input, Row } from "antd";
+import { Alert, Button, Card, Col, Form, Input, message, Row } from "antd";
 import "../../styles/Header.css";
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
+import Footer from "../../components/footer";
+import { Header } from "../../components/Header/Header";
+import AppShot from "../../components/tools/tools";
+import emailjs from "@emailjs/browser";
+
 const { Meta } = Card;
 export const Home = () => {
   const [form] = Form.useForm();
   const [darkMode, setDarkMode] = useState(false);
 
-  const handleSubmit = useCallback((values) => {
-    Alert("hello");
-  }, []);
+  const handleSubmit = (value) => {
+    const param = {
+      from_name: value?.name,
+      to_name: "Sadam",
+      message: `name:${value?.name}  message:${value?.message}   email:${value?.email}`,
+    };
+    emailjs
+      .send("service_xbm9cb6", "template_imyfd4f", param, {
+        publicKey: "Q4LMyASZ7dlsLDdh6",
+      })
+      .then((res) => {
+        message.success("Message Submitted Successfully");
+        form.resetFields();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div className={darkMode ? "dark" : ""}>
       <Header darkMode={darkMode} setDarkMode={setDarkMode} />
       <div className="dark:bg-slate-900">
         <div id="home">
-          <Row
-            className="pt-[120px] text-teal-600  font-poppins text-6xl"
-            justify={"center"}
-          >
-            Raza Ali
+          <Row>
+            <Col sm={24} md={12} className="pl-[50px]">
+              <div className="pt-[120px] text-teal-600  font-poppins text-6xl text-left">
+                Raza Ali
+              </div>
+              <Row
+                className="dark:text-white font-poppins text-xl mt-3 mb-5"
+                justify={"start"}
+              >
+                Software Engineer
+              </Row>
+              <div className="dark:text-white font-poppins text-2xl text-left ">
+                Hi, I’m Raza Ali, a passionate software engineer specializing in
+                front-end web development. With a keen eye for design and a love
+                for creating seamless user experiences, I bring ideas to life
+                through clean, efficient code.
+              </div>
+            </Col>
+            <Col sm={24} md={12}>
+              <div className="w-full flex justify-center pt-[100px]">
+                <img
+                  src="../../images/mobile.png"
+                  alt="example"
+                  className="banner-animation"
+                />
+              </div>
+            </Col>
           </Row>
-          <Row
-            className="dark:text-white font-poppins text-xl mt-3 mb-5"
-            justify={"center"}
-          >
-            Software Engineer
-          </Row>
-          <div className="w-full flex justify-center">
-            <div className="dark:text-white font-poppins text-2xl sm:w-full md:w-[700px] lg:w-[900px]">
-              Hi, I’m Raza Ali, a passionate software engineer specializing in
-              front-end web development. With a keen eye for design and a love
-              for creating seamless user experiences, I bring ideas to life
-              through clean, efficient code.
-            </div>
-          </div>
         </div>
         <div className="flex justify-center text-5xl text-gray-600 gap-11 py-3">
           <a href="https://github.com/razabhatti546" target="blank">
@@ -56,7 +83,7 @@ export const Home = () => {
             <Col xs={22} md={10} lg={6}>
               <Card
                 hoverable
-                className="transition ease-in-out delay-150  hover:-translate-y-7 duration-300"
+                className="transition ease-in-out delay-150 mt-[20px]  hover:-translate-y-7 duration-300"
                 cover={<img alt="example" src="../../images/frontend.png" />}
               >
                 <Meta
@@ -68,7 +95,7 @@ export const Home = () => {
             <Col xs={22} md={10} lg={6}>
               <Card
                 hoverable
-                className="transition ease-in-out delay-150  hover:-translate-y-7 duration-200"
+                className="transition ease-in-out mt-[20px] delay-150  hover:-translate-y-7 duration-200"
                 cover={<img alt="example" src="../../images/backend.webp" />}
               >
                 <Meta
@@ -80,7 +107,7 @@ export const Home = () => {
             <Col xs={22} md={10} lg={6} className="col-alignment">
               <Card
                 hoverable
-                className="transition ease-in-out delay-150  hover:-translate-y-7 duration-300"
+                className="transition ease-in-out mt-[20px] delay-150  hover:-translate-y-7 duration-300"
                 cover={<img alt="example" src="../../images/mobile.png" />}
               >
                 <Meta
@@ -99,11 +126,14 @@ export const Home = () => {
             <div className="dark:text-white font-poppins text-2xl sm:w-full md:w-[700px] lg:w-[900px]">
               My journey in web development has equipped me with a diverse skill
               set, including HTML, CSS, JavaScript, and modern frameworks like
-              React and Vue.js. I thrive on solving complex problems and enjoy
+              React and Next.js. I thrive on solving complex problems and enjoy
               collaborating with designers and developers to create innovative
               solutions.
             </div>
           </Row>
+        </div>
+        <div id="tools" className="mb-[50px]">
+          <AppShot />
         </div>
 
         <div id="contactus" className="mb-[50px]">
@@ -111,7 +141,7 @@ export const Home = () => {
             Contact Me
           </Row>
           <div className="w-full flex justify-center">
-            <div className="sm:w-[320px] lg:w-[520px] bg-slate-600 dark:bg-abc p-5 rounded-lg">
+            <div className="sm:w-[320px] lg:w-[520px] bg-black dark:bg-abc p-5 rounded-lg mb-[200px]">
               <Form form={form} layout="vertical" onFinish={handleSubmit}>
                 <Form.Item
                   name="name"
@@ -149,16 +179,15 @@ export const Home = () => {
                 >
                   <Input.TextArea placeholder="Type message here" />
                 </Form.Item>
-              </Form>
-              <Form.Item>
                 <Button type="primary" htmlType="submit" className="w-full">
                   Submit
                 </Button>
-              </Form.Item>
+              </Form>
             </div>
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

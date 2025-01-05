@@ -1,0 +1,120 @@
+/*--------------------------------------------------------------
+# Site Footer
+--------------------------------------------------------------*/
+
+.site-footer {
+  position: relative;
+  display: block;
+  background: var(--thm-black);
+  padding: 190px 0 13px;
+  overflow: hidden;
+  margin-top: -135px;
+  background-color: black;
+}
+
+.site-footer-bg {
+  position: absolute;
+  bottom: -20%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 739px;
+  height: 453px;
+  opacity: 0.1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../images/footer-bg-shape-1.png");
+}
+
+.site-footer .container {
+  position: relative;
+}
+
+.footer-widget__social {
+  padding: 37px 0 29px 0;
+}
+
+.footer-widget__social li {
+  list-style: none;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.footer-widget__social li a {
+  color: #ffffff;
+  height: 40px;
+  width: 40px;
+  border-radius: 50px;
+  background: var(--thm-primary);
+  display: inline-block;
+  line-height: 40px;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+.footer-widget__social li a.color-1 {
+  background: #5798fe;
+}
+
+.footer-widget__social li a.color-1:hover {
+  color: #5798fe;
+  background-color: #fff;
+}
+
+.footer-widget__social li a.color-2 {
+  background: var(--thm-base);
+}
+
+.footer-widget__social li a.color-2:hover {
+  color: var(--thm-base);
+  background-color: #fff;
+}
+
+.footer-widget__social li a.color-3 {
+  background: #56cc61;
+}
+
+.footer-widget__social li a.color-3:hover {
+  color: #56cc61;
+  background-color: #fff;
+}
+
+.footer-menu {
+  padding-bottom: 6px;
+}
+
+.footer-menu ul li {
+  list-style: none;
+  display: inline-block;
+}
+
+.footer-menu ul li a {
+  color: #8d8d8d;
+  font-size: 18px;
+  display: inline-block;
+  padding: 0 45px 0 0;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+.footer-menu ul li a:hover {
+  color: #fff;
+}
+
+.site-footer__bottom p {
+  margin: 0;
+  color: #8d8d8d;
+  margin-bottom: 7px;
+  font-size: 17px;
+}
+
+.site-footer__bottom p a {
+  color: var(--thm-primary);
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+.site-footer__bottom p a:hover {
+  color: #fff;
+}
